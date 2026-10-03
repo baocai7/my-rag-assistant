@@ -4,17 +4,19 @@
 
 ## 演示
 
-| 纯对话（流式 + 思考过程） | 文档问答（带出处引用） |
+| 纯对话（流式 + 思考过程） | 文档问答（带出处引用与来源分数） |
 |---|---|
-| ![对话](screenshots/01-chat.png) | ![文档问答](screenshots/02-rag-citation.png) |
+| ![对话](screenshots/01-chat.jpg) | ![文档问答](screenshots/02-rag-citation.jpg) |
 
-| 检索来源与相似度 | 未命中时路由到模型自身知识 |
+| 检索来源与相似度展开 | 未命中时路由到模型自身知识 |
 |---|---|
-| ![来源](screenshots/03-sources.png) | ![兜底](screenshots/04-fallback.png) |
+| ![来源](screenshots/03-sources.jpg) | ![兜底](screenshots/04-fallback.jpg) |
 
-**检索质量评估结果**
+**检索质量评估结果**（12 条自建评测集：Recall@4 = 10/10，MRR = 0.900）
 
-![评估](screenshots/05-eval.png)
+![评估](screenshots/05-eval.jpg)
+
+> 截图中的演示文档为公开的校级政策文件与个人学习资料，仅用于功能演示。
 
 ## 功能
 
