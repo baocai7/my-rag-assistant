@@ -20,8 +20,8 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import HTMLResponse, StreamingResponse
 from pydantic import BaseModel
 
-from rag import (VLLM_URL, build_index, call_llm, embed, format_context,
-                 load_index, retrieve)
+from rag import (VLLM_MODEL, VLLM_URL, build_index, call_llm, embed,
+                 format_context, load_index, retrieve)
 
 HERE    = os.path.dirname(os.path.abspath(__file__))
 DOC_DIR = os.path.join(HERE, "pdfs")
@@ -389,11 +389,10 @@ def build():
 @app.post("/api/chat")
 def chat(inp: ChatIn):
     """纯对话：把 vLLM 的 SSE 流原样转发给浏览器"""
-    body = {"model": None, "messages": inp.messages,
+    body = {"model": VLLM_MODEL, "messages": inp.messages,
             "max_tokens": inp.max_tokens, "temperature": inp.temperature, "stream": True}
     if not inp.thinking:
         body["chat_template_kwargs"] = {"enable_thinking": False}
-    body["model"] = os.environ.get("VLLM_MODEL", "qwen3.8-27b")
     req = urllib.request.Request(VLLM_URL, data=json.dumps(body).encode(),
                                  headers={"Content-Type": "application/json"})
 
