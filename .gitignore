@@ -1,0 +1,17 @@
+# 依赖与缓存
+__pycache__/
+*.py[cod]
+rag_env/
+*.log
+
+# ⚠️ 不要上传：文档原件与索引（索引里是文档原文切片）
+pdfs/
+index.npz
+index.json
+
+# 评估结果（含具体问题文本）
+eval_result.json
+
+# 打包与系统文件
+*.tar.gz
+.DS_Store
