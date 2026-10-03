@@ -1,0 +1,24 @@
+# 构建镜像时排除的内容 —— 让镜像更小、构建更快
+__pycache__/
+*.py[cod]
+*.log
+
+# 开发环境与缓存（容器里会重新装）
+rag_env/
+.dockerignore
+Dockerfile
+docker-compose*.yml
+
+# 数据与索引：通过 -v 挂载进来，不打进镜像
+pdfs/
+index.npz
+index.json
+eval_result.json
+
+# 仓库与文档
+.git/
+.gitignore
+screenshots/
+README.md
+*.tar.gz
+.DS_Store
